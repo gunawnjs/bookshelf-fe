@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+:root{
+	--clr-primary-200: hsl(14deg, 100%, 50%);
+	--clr-secondary-600: hsl(0deg, 0%, 20%);
+}
+*{
+	font-family: Poppins;
+	margin: 0;
+	padding: 0;
+}
+html{
+	background-color: #ECF0F1;
+}
+nav{
+	color: #212121;
+}
+li{
+	list-style: none;
+}
+span{
+	font-size: 1.5em;
+}
+main{
+	margin: 70px 5px 0;
+}
+.header{
+	background-color: #fff;
+	color: var(--clr-primary-200);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding: 15px 15px;
+	z-index: 3;
+}
+.search-wrapper{
+	border: solid 1px #bdbdbd;
+	border-left: solid 2px var(--clr-primary-200);
+	border-right: solid 2px var(--clr-primary-200);
+	border-radius: 20px;
+	display: flex;
+	position: absolute;
+	min-width: 40px;
+	left: 57%;
+	transform: translate(-50%, -50%);
+	width: 15rem;
+	height: 2rem;
+}
+.search-wrapper .mdi-magnify{
+	padding-left: 15px;
+	font-size: 1em;
+	padding-top: 3.5px;
+}
+.search{
+	font-size: 1em;
+	all: unset;
+	max-width: 8rem;
+	padding: 0 8px;
+}
+.sidebar{
+	background-color: #fff;
+	color: var(--clr-primary-200);
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	z-index: 1;
+	width: 50px;
+}
+.sidebar li{
+	padding-top: 15px;
+}
+.sidebar .home{
+	padding-top:80px;
+}
+.sidebar .group-bottom{
+	padding-bottom: 20px;
+}
+.card-wrapper{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.card{
+	/*visibility: hidden;*/
+	background-color: #fff;
+	margin: .5rem;
+	padding: 10px;
+	border-radius: 5px;
+	width: 100%;
+	height: 60px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.card p{
+	font-size: 10px;
+}
+.card span{
+	font-size: 18px;
+}
+.dropdown{
+	background-color: #fff;
+	border: solid 1px #bdbdbd;
+	border-radius: 5px;
+	position: absolute;
+	right: 1.8rem;
+	top: 6rem;
+	display: flex;
+	flex-direction: column;
+	padding: 10px 5px;
+	width: 80px;
+	height: 60px;
+	margin-top: 12px;
+}
+.dropdown button{
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+	display: flex;
+	flex-direction: row;
+	padding:0 2px;
+	margin: 2px 0;
+}
+.dropdown span{
+	margin-right: 5px;
+}
+.fab{
+	background-color: var(--clr-primary-200);
+	color: #fff;
+	border: none;
+	border-radius: 50%;
+	position: fixed;
+	bottom: 1.5em;
+	right: 1.5em;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+}
+.modal-background{
+	position: fixed;
+	transform: translate(-50%, -50%);
+	left: 50%;
+	top: 50%;
+	background-color: #000;
+	width: 100%;
+	height: 100%;
+	z-index: 5;
+	opacity: 0.3;
+}
+.navigation{
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.modal{
+	background-color: #fff;
+	color: var(--clr-secondary-600);
+	border-radius: 10px;
+	position: fixed;
+	transform: translate(-50%, -50%);
+	left: 50%;
+	top: 50%;
+	width: 85vw;
+	height: 400px;
+	z-index: 6;
+	padding: 15px;
+}
+.modal h3{
+	/*font-weight: inherit;*/
+	font-size: 18px;
+	margin: 15px 5px 0;
+	margin-top: 20px;
+	margin-bottom: -25px;
+}
+.modal-input{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: 40px 0 0;
+}
+.modal-input input{
+	border: solid 1px #bdbdbd;
+	border-radius: 5px;
+	margin: 5px;
+	padding: 12px;
+	width: 100%;
+}
+.modal-input input:focus{
+	outline: none;
+	border: solid 2px var(--clr-primary-200);
+}
+@media screen and (min-width: 400px){
+	main{
+		margin-top: 80px;
+	}
+	span{
+		font-size: 2em;
+	}
+	.header{
+		padding: 15px 9px;
+	}
+	.search-wrapper{
+		left: 55%;
+		width: 20rem;
+	}
+	.search-wrapper .mdi-magnify{
+		padding-top: 5px;
+	}
+
+	.dropdown{
+		top: 7rem;
+	}
+	.fab{
+		font-size: 18px;
+		width: 70px;
+		height: 70px;
+		bottom: 1.3em;
+		right: 1.3em;
+	}
+}
+@media screen and (min-width: 500px){
+	.search-wrapper{
+		left: 53%;
+		width: 80%;
+	}
+}
+@media screen and (min-width: 1024px){
+	.search-wrapper{
+		left: 50%;
+		width: 50%;
+	}
+}
