@@ -11,6 +11,9 @@
 html{
 	background-color: #ECF0F1;
 }
+a{
+	color: inherit;
+}
 nav{
 	color: #212121;
 }

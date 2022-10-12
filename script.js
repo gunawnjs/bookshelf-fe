@@ -2,7 +2,19 @@ const modal = document.querySelector('.modal-wrapper');
 const modalBlur = document.querySelector('.modal-background');
 modal.style.visibility = 'hidden';
 
+const path = window.location.pathname;
+const dir = path.substring(0, path.lastIndexOf('/'));
+const currentDir = path.substring(path.lastIndexOf('/')+1);
+
+// console.log(dir)
+// console.log(currentDir);
+
 const fab = document.getElementById('#fab');
+
+if(currentDir != 'index.html'){
+	fab.style.visibility = 'hidden';
+} 
+
 fab.addEventListener('click', () => {
 	modal.style.visibility = 'visible';
 });
@@ -51,16 +63,19 @@ for(let i = 0; i < listMenu.length; i++){
 	});
 }
 
-const topSideMenu = document.querySelectorAll('.sidebar .group-top li');
-for(let i = 0; i < topSideMenu.length; i++){
-	topSideMenu[i].style.cursor = 'pointer';
+const topMenu = document.querySelectorAll('.sidebar .group-top li');
+const forAnchor = ['index.html', 'archive.html'];
+const mdi = ['mdi mdi-home', 'mdi mdi-inbox'];
+
+for(let i=0; i<topMenu.length; i++){
+	const anchor = document.createElement('a');
+	const span = document.createElement('span');
+	anchor.setAttribute('href', ...forAnchor[i].split(' '));
+
+	topMenu[i].append(anchor);
+	anchor.append(span);
+
+	span.classList.add(...mdi[i].split(' '));
+
 }
 
-const botSideMenu = document.querySelector('.sidebar .group-bottom li');
-botSideMenu.style.cursor = 'pointer';
-
-const linkContent = ['index.html', 'archive.html'];
-const link = document.createElement('a');
-
-
-console.log(linkContent);
