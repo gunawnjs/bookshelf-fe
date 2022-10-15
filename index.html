@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Bookshelf Apps</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.9.96/css/materialdesignicons.min.css">
-	<link rel="stylesheet" href="./style.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<nav>
@@ -25,8 +25,8 @@
 		</ul>
 	</nav>
 	<main>
-		<div class="card-wrapper">
-			<div class="card">
+		<div class="card-wrapper" id="bookList">
+			<!-- <div class="card">
 				<div class="content">
 					<h3>Atomic Habits</h3>
 					<p>by James Clear - published 2018</p>
@@ -36,26 +36,28 @@
 					<button><span class="mdi mdi-check"></span>Done</button>
 					<button><span class="mdi mdi-trash-can"></span>Delete</button>
 				</div>
-			</div>
+			</div> -->
 		</div>
 		<div class="modal-wrapper">
 			<div class="modal-background">
 			</div>
 			<div class="modal">
-				<div class="navigation">
-					<span id="#back" class="mdi mdi-chevron-left-circle-outline"></span>
-					<span class="mdi mdi-check"></span>
-				</div>
-				<h3>Add Books</h3>
-				<div class="modal-input">
-					<input placeholder="Title">
-					<input placeholder="Author">
-					<input placeholder="Published">
-				</div>
+				<form id="form">
+					<div class="navigation">
+						<span id="#back" class="mdi mdi-chevron-left-circle-outline"></span>
+						<button type="submit" class="submit"><span class="mdi mdi-check"></span></button>
+					</div>
+					<h3>Add Books</h3>
+					<div class="modal-input">
+						<input id="title" placeholder="Title">
+						<input id="author" placeholder="Author">
+						<input id="year" placeholder="Published">
+					</div>
+				</form>
 			</div>
 		</div>
 		<button id="#fab" class="fab"><span class="mdi mdi-plus"></span></button>
 	</main>
-	<script src="script.js"></script>
+	<script src="js/script.js"></script>
 </body>	
 </html>
