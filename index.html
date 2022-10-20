@@ -11,8 +11,13 @@
 <body>
 	<nav>
 		<ul class="header">
-			<li><span class="mdi mdi-menu"></span></li>
-			<li><div class="search-wrapper"><span class="mdi mdi-magnify"></span><input class="search" placeholder="Search books" size="12"></div></li>
+			<li><span class="mdi mdi-menu burger"></span></li>
+			<li>Bookshelf Apps</li>
+			<li><span class="mdi mdi-magnify"></span></li>
+		</ul>
+		<ul class="search-bar--wrapper" style="display:none;">
+			<li><span class="mdi mdi-arrow-left"></span></li>
+			<li><div class="search-wrapper"><span class="mdi mdi-magnify"></span><input class="search" id="searchBar" placeholder="Search books" size="12"></div></li>
 		</ul>
 		<ul class="sidebar">
 			<div class="group-top">
@@ -24,19 +29,11 @@
 			</div>
 		</ul>
 	</nav>
-	<main>
-		<div class="card-wrapper" id="bookList">
-			<!-- <div class="card">
-				<div class="content">
-					<h3>Atomic Habits</h3>
-					<p>by James Clear - published 2018</p>
-				</div>
-				<span class="mdi mdi-dots-vertical menu"></span>
-				<div class="dropdown">
-					<button><span class="mdi mdi-check"></span>Done</button>
-					<button><span class="mdi mdi-trash-can"></span>Delete</button>
-				</div>
-			</div> -->
+	<main id="main">
+		<div class="card-wrapper" id="uncompleted">
+		</div>
+		<div class="card-wrapper" id="completed" style="display: none;">
+			<!-- content -->
 		</div>
 		<div class="modal-wrapper">
 			<div class="modal-background">
