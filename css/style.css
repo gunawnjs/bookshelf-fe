@@ -228,6 +228,17 @@ main{
   margin-left: 1rem;
   margin-top: 1rem;
 }
+.recently{
+	font-size: 1.2em;
+	color: var(--clr-primary-200);
+	margin-left: 4rem;
+	margin-top: 5rem;
+}
+.finished{
+	font-size: 1.2em;
+	color: var(--clr-primary-200);
+	margin-left: 4rem;
+	margin-top: 5rem;
 }
 @media screen and (min-width: 400px){
 	main{
@@ -256,6 +267,14 @@ main{
 		bottom: 1.3em;
 		right: 1.3em;
 	}
+	.recently{
+		font-size: 1.5em;
+		margin-top: 5.5rem;
+	}
+	.finished{
+		font-size: 1.5em;
+		margin-top: 5.5rem;
+	}
 }
 @media screen and (min-width: 500px){
 	.search-wrapper{
@@ -267,5 +286,16 @@ main{
 	.search-wrapper{
 		left: 50%;
 		width: 50%;
+	}
+	.recently{
+		font-size: 2em;
+		margin-top: 6rem;
+	}
+	.finished{
+		font-size: 2em;
+		margin-top: 6rem;
+	}
+	.logo{
+		font-size: 1.8em;
 	}
 }

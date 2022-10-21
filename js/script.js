@@ -92,13 +92,13 @@ for(const sidebar of sidebarContent){
 	sidebar.style.cursor = 'pointer';
 }
 
-const mainHeader = document.createElement('h3');
-mainHeader.classList.add('main-header');
+const recently = document.getElementById('recentlyAdded');
+const finished = document.getElementById('justFinished');
 
 archive.addEventListener('click', ()=>{
 	if(completed.style.display == 'none'){
-		mainHeader.innerText = 'Just finished';
-		completed.prepend(mainHeader);
+		recently.style.display = 'none';
+		finished.style.removeProperty('display');
 		completed.style.removeProperty('display');
 		uncompleted.style.display = 'none';
 		fab.style.display = 'none';
@@ -107,15 +107,13 @@ archive.addEventListener('click', ()=>{
 
 home.addEventListener('click', ()=>{
 	if(uncompleted.style.display == 'none'){
-		mainHeader.innerText = 'Recently added';
-		uncompleted.prepend(mainHeader);
+		finished.style.display = 'none';
+		recently.style.removeProperty('display');
 		uncompleted.style.removeProperty('display');
 		completed.style.display = 'none';
 		fab.style.removeProperty('display');
 	}
 });
-
-
 
 
 
@@ -132,64 +130,23 @@ home.addEventListener('click', ()=>{
 const books = [];
 const RENDER_EVENT = 'render-books';
 
-// const searchbar = document.getElementById('searchBar');
-// searchbar.addEventListener('keyup', (e)=>{
-// 	const searchValue = e.target.value;
-// 	const filteredBooks = books.filter((book) => {
-// 		return book.title.includes(searchValue);
-// 	});
-// 	displayBook(filteredBooks);
-// });
-
-// const displayBook = (books) => {
-// 	const htmlString = books.map((books)=>{
-// 		let cardList = [];
-// 		// console.log(cardList);
-		
-// 		if(books.isComplete == false){
-// 			cardList = `
-// 				<div class="card-wrapper" id="uncompleted">
-// 					<div class="card">
-// 						<div class="content">
-// 							<h3>${books.title}</h3>
-// 							<p>by ${books.author} - published ${books.year}</p>
-// 						</div>
-// 						<span id="menu" class="mdi mdi-dots-vertical menu"></span>
-// 						<div class="dropdown-wrapper" style="display:none;">
-// 							<div class="dropdown">
-// 								<button class="done-button"><span class="mdi mdi-check"></span>Done</button>
-// 								<button class="delete-button"><span class="mdi mdi-trash-can"></span>Delete</button>
-// 							</div>
-// 						</div>
-// 					</div>
-// 				</div>
-// 			`
-// 			} else if(books.isComplete != false) {
-// 			cardList = `
-// 				<div class="card-wrapper" id="completed" style="display:none;">
-// 					<div class="card">
-// 						<div class="content">
-// 							<h3>${books.title}</h3>
-// 							<p>by ${books.author} - published ${books.year}</p>
-// 						</div>
-// 						<span id="menu" class="mdi mdi-dots-vertical menu"></span>
-// 						<div class="dropdown-wrapper" style="display:none;">
-// 							<div class="dropdown">
-// 								<button class="undo-button"><span class="mdi mdi-undo"></span>Done</button>
-// 								<button class="delete-button"><span class="mdi mdi-trash-can"></span>Delete</button>
-// 							</div>
-// 						</div>
-// 					</div>
-// 				</div>
-// 			`
-// 		}
-// 		return cardList;
-// 	}).join('');
-
-// 	main.innerHTML = htmlString;
+const searchBar = document.getElementById('searchBar');
+searchBar.addEventListener('keyup', (e)=>{
+	const searchString = e.target.value.toLowerCase();
+	const cardTitle = document.querySelectorAll('.card-wrapper > h3');
 	
-// 	// console.log(htmlString);
-// }
+	const filteredString = books.filter((data) =>{
+		return data.title.toLowerCase().includes(searchString);
+	});
+	displayBooks(filteredString);
+});
+
+const displayBooks = (books) => {
+	const htmlString = books
+	  .map((book) => {
+	      console.log(book.title);
+	  })
+}
 
 const generateId = () => {	
 	return +new Date();
