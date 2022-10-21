@@ -130,23 +130,23 @@ home.addEventListener('click', ()=>{
 const books = [];
 const RENDER_EVENT = 'render-books';
 
-const searchBar = document.getElementById('searchBar');
-searchBar.addEventListener('keyup', (e)=>{
-	const searchString = e.target.value.toLowerCase();
-	const cardTitle = document.querySelectorAll('.card-wrapper > h3');
+// const searchBar = document.getElementById('searchBar');
+// searchBar.addEventListener('keyup', (e)=>{
+// 	const searchString = e.target.value.toLowerCase();
 	
-	const filteredString = books.filter((data) =>{
-		return data.title.toLowerCase().includes(searchString);
-	});
-	displayBooks(filteredString);
-});
+	
+// 	const filteredString = books.filter((data) =>{
+// 		return data.title.toLowerCase().includes(searchString);
+// 	});
+// 	displayBooks(filteredString);
+// });
 
-const displayBooks = (books) => {
-	const htmlString = books
-	  .map((book) => {
-	      console.log(book.title);
-	  })
-}
+// const displayBooks = (books) => {
+// 	const htmlString = books
+// 	  .map((book) => {
+// 		  	console.log(book.title);
+// 	  });
+// }
 
 const generateId = () => {	
 	return +new Date();
@@ -204,9 +204,13 @@ const createList = (books) => {
 	const title = document.createElement('h3');
 	const info = document.createElement('p');
 
-	if(window.innerWidth < 500){
+	if(window.innerWidth > 320 && window.innerWidth < 600 ){
 		let titleLimit = books.title;
 		titleLimit = titleLimit.slice(0, 18) + "...";
+		title.innerText = titleLimit;
+	} else if (window.innerWidth > 600 && window.innerWidth < 900 ) {
+		let titleLimit = books.title;
+		titleLimit = titleLimit.slice(0, 30) + "...";
 		title.innerText = titleLimit;
 	} else {
 		title.innerText = books.title;
