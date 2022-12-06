@@ -13,18 +13,20 @@ submitBtn.addEventListener('click', ()=>{
 });
 
 const path = window.location.pathname;
-const dir = path.substring(0, path.lastIndexOf('/'));
-const currentDir = path.substring(path.lastIndexOf('/')+1);
+// const dir = path.substring(0, path.lastIndexOf('/'));
+// const currentDir = path.substring(path.lastIndexOf('/')+1);
 
 const fab = document.getElementById('#fab');
 
-if(currentDir != 'index.html'){
+if(path != '/'){
 	fab.style.visibility = 'hidden';
 } 
 
 fab.addEventListener('click', () => {
 	modal.style.visibility = 'visible';
 });
+
+// document.addEventListener('click', () => {})
 
 const back = document.getElementById('#back');
 back.style.cursor = 'pointer';
@@ -41,10 +43,16 @@ burger.style.cursor = 'pointer';
 burger.addEventListener('click', ()=>{
 	if(sidebar.style.visibility == 'visible'){
 		sidebar.style.visibility = 'hidden';
-		document.querySelector('.card-wrapper').style.marginLeft = '0';
+		document.getElementById('uncompleted').style.marginLeft = '0';
+		document.getElementById('completed').style.marginLeft = '0';
+		document.querySelector('.recently').style.marginLeft = '0.5rem';
+		document.querySelector('.finished').style.marginLeft = '0.5rem';
 	} else {
 		sidebar.style.visibility = 'visible';
-		document.querySelector('.card-wrapper').style.marginLeft = '3rem';
+		document.getElementById('uncompleted').style.marginLeft = '3rem';
+		document.getElementById('completed').style.marginLeft = '3rem';
+		document.querySelector('.recently').style.marginLeft = '3.5rem';
+		document.querySelector('.finished').style.marginLeft = '3.5rem';
 	}
 })
 
@@ -54,7 +62,9 @@ const searchWrapper = document.querySelector('.search-bar--wrapper');
 const backHeader = document.querySelector('.mdi-arrow-left');
 magnify.style.cursor = 'pointer';
 backHeader.style.cursor = 'pointer';
-magnify.addEventListener('click', ()=>{
+magnify.addEventListener('click', (event)=>{
+	event.stopPropagation();
+
 	if(searchWrapper.style.display == 'none'){
 		searchWrapper.style.removeProperty('display');
 		header.style.display = 'none';
@@ -232,13 +242,25 @@ const createList = (books) => {
 	dropdownWrapper.append(dropdown);
 
 	dropdownWrapper.style.display = 'none';
-	menu.addEventListener('click', ()=>{
+	menu.addEventListener('click', (event)=>{
+		event.stopPropagation();
+
 		if(dropdownWrapper.style.display == 'none'){
 			dropdownWrapper.style.removeProperty('display');
 		} else {
 			dropdownWrapper.style.display = 'none';
 		}
 	});
+
+	document.addEventListener('click', () => {
+		dropdownWrapper.style.display = 'none';
+		searchWrapper.style.display = 'none';
+
+		if(header.style.display == 'none'){
+			searchWrapper.style.display = 'none';
+			header.style.removeProperty('display');
+		}
+	})
 
 	const deleteBtn = document.createElement('button');
 	const spanTrash = document.createElement('span');
